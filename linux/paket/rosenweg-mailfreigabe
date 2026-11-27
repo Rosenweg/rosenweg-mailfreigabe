@@ -1,0 +1,4 @@
+#!/bin/sh
+# Startet Rosenweg Mail-Freigabe aus /opt/rosenweg-mailfreigabe (Flutter-Buendel sucht data/
+# und lib/ neben der echten Programmdatei; wie rosenweg-profil, rosenweg-vm).
+exec /opt/rosenweg-mailfreigabe/rosenweg_mailfreigabe "$@"

@@ -1,0 +1,12 @@
+{
+  "_hinweis": "Eintrag fuer das App-Register (Rosenweg/Website apps-register.json, Abschnitt 'apps', Schluessel = 'app'). Erst damit nimmt die Anlage Releases dieses Repos an. Logo: assets/logo/rosenweg-mailfreigabe-192.png nach www img/apps/rosenweg-mailfreigabe.png.",
+  "app": "mailfreigabe",
+  "name": "Rosenweg Mail-Freigabe",
+  "repo": "Rosenweg/rosenweg-mailfreigabe",
+  "paket": "ch.rosenweg4303.mailfreigabe",
+  "logo": "/img/apps/rosenweg-mailfreigabe.png",
+  "reihenfolge": 100,
+  "text": "Mails der Verwaltung prüfen und freigeben – mit Benachrichtigung, sobald eine wartet.",
+  "fuer": "",
+  "technik": true
+}

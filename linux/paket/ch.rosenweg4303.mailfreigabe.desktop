@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Rosenweg Mail-Freigabe
+Comment=Mails der Verwaltung prüfen und freigeben – mit Benachrichtigung, sobald eine wartet.
+Exec=rosenweg-mailfreigabe
+# Name im Symbol-Thema (hicolor), kein Pfad.
+Icon=rosenweg-mailfreigabe
+Terminal=false
+# Dateiname = GTK-Anwendungskennung (APPLICATION_ID in linux/CMakeLists.txt).
+StartupWMClass=ch.rosenweg4303.mailfreigabe
+# Kategorie "Rosenweg" im Startmenue der Stationen (os-stationen 60-programme.sh)
+Categories=Office;Utility;
+Keywords=Rosenweg;
