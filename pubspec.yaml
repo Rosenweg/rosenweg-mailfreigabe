@@ -23,8 +23,7 @@ dependencies:
   rosenweg_basis:
     git:
       url: https://github.com/Rosenweg/rosenweg-basis.git
-      # bis Tag v0.8.0 steht: Commit von Basis-PR #31 (Benachrichtigung, HintergrundAbfrage)
-      ref: ee39ddfa6077d853409e730446b144c38acdd22a
+      ref: v0.8.0
 
 dev_dependencies:
   flutter_test:
