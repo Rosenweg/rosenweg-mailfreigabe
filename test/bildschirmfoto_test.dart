@@ -43,6 +43,10 @@ Future<void> foto(WidgetTester t, String datei) async {
 }
 
 void main() {
+  setUp(() {
+    Benachrichtigung.attrappe = [];
+    AppVerweise.attrappe = const Stream.empty();
+  });
   setUpAll(() async {
     Protokoll.nurKonsole = true;
     if (ziel != null) await schriften();
@@ -52,18 +56,45 @@ void main() {
     t.view.physicalSize = groesse * 2;
     t.view.devicePixelRatio = 2;
     addTearDown(t.view.reset);
-    final s = RosenwegSitzung(appAngaben, transport: Attrappe());
+    final s = attrappeSitzung(appAngaben, Attrappe());
     await s.starten();
     if (phase != null) s.phase = phase;
-    await t.pumpWidget(RepaintBoundary(child: RosenwegRahmen(sitzung: s, inhalt: (_) => Haupt(sitzung: s))));
+    await t.pumpWidget(
+      RepaintBoundary(
+        child: RosenwegRahmen(
+          sitzung: s,
+          inhalt: (_) => Haupt(sitzung: s),
+        ),
+      ),
+    );
     await t.runAsync(() => precacheImage(appAngaben.logo!, t.element(find.byType(MaterialApp))));
-    await t.runAsync(() => precacheImage(const AssetImage('assets/logo/rosenweg-mailfreigabe-klein.png'), t.element(find.byType(MaterialApp))));
+    await t.runAsync(
+      () => precacheImage(const AssetImage('assets/logo/rosenweg-mailfreigabe-klein.png'), t.element(find.byType(MaterialApp))),
+    );
     await t.pumpAndSettle();
   }
 
   testWidgets('Fotos', (t) async {
     await zeigen(t, const Size(412, 860));
     await foto(t, 'rosenweg-mailfreigabe-handy.png');
+    await t.tap(
+      find.descendant(
+        of: find.ancestor(of: find.text('Einladung zur Ausschusssitzung am 9. Dezember'), matching: find.byType(Card)),
+        matching: find.text('Freigeben'),
+      ),
+    );
+    await t.pumpAndSettle();
+    await foto(t, 'rosenweg-mailfreigabe-rueckfrage.png');
+    await t.tap(find.text('Abbrechen'));
+    await t.pumpAndSettle();
+    (t.state(find.byType(Haupt)) as dynamic).oeffneZiel('mail/41');
+    await t.pumpAndSettle();
+    await foto(t, 'rosenweg-mailfreigabe-mail.png');
+    await t.tap(find.byType(BackButton));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Alle Mails'));
+    await t.pumpAndSettle();
+    await foto(t, 'rosenweg-mailfreigabe-alle.png');
     await zeigen(t, const Size(1200, 800));
     await foto(t, 'rosenweg-mailfreigabe-station.png');
     await zeigen(t, const Size(412, 860), phase: Phase.abgemeldet);
