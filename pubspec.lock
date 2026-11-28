@@ -406,7 +406,7 @@ packages:
     source: hosted
     version: "2.2.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       sha256: "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
@@ -825,8 +825,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: ee39ddfa6077d853409e730446b144c38acdd22a
-      resolved-ref: ee39ddfa6077d853409e730446b144c38acdd22a
+      ref: "v0.8.0"
+      resolved-ref: cb2ae801cd1edcf83507ed715b29af2bb73ee65c
       url: "https://github.com/Rosenweg/rosenweg-basis.git"
     source: git
     version: "0.8.0"

@@ -41,8 +41,10 @@ Vor dem Commit `pubspec_overrides.yaml` entfernen und `flutter pub get` laufen l
 
 | Ordner | Inhalt |
 |---|---|
-| `lib/app.dart` | `RosenwegApp`: Kennung `ch.rosenweg4303.mailfreigabe`, Name, Logo |
-| `lib/seiten/` | die Seiten der App (`RosenwegGeruest`: Handy unten, Desktop links) |
+| `lib/app.dart` | `RosenwegApp`: Kennung `ch.rosenweg4303.mailfreigabe`, Name, Logo, Gruppe Technik (grün) |
+| `lib/mail_api.dart` | Endpunkte wie `verwaltung-mail-outbox.html`: `/api/verwaltung-mail-queue` (Liste, Detail, `PUT`, `freigeben`, `ablehnen`, Anhang) und `…/zur-freigabe` (Website-PR; vorher Rückfall auf `?status=pending`) |
+| `lib/abfrage.dart` | Abfrage im Hintergrund (`HintergrundAbfrage`, `Benachrichtigung` der Basis ab 0.8.0): „Neue Mail wartet auf Freigabe“ |
+| `lib/seiten/` | Freigeben, Alle Mails, Mail (Detail), Bearbeiten (`RosenwegGeruest`: Handy unten, Desktop links) |
 | `lib/attrappe.dart` | Vorführdaten statt der API (Tests, Bildschirmfotos) |
 | `assets/logo/` | Logo aus dem Baukasten der Basis: `sh assets/logo/erzeugen.sh ../rosenweg-basis` |
 | `linux/paket/` | Debian-Paket (`bauen.sh`, im Bau-Container `im-container.sh`), `paket.conf` = Vorlage für os-stationen |
